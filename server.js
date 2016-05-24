@@ -53,20 +53,6 @@ app.use('/public/images/icons', express.static(__dirname + '/govuk_modules/govuk
 // Elements refers to icon folder instead of images folder
 app.use(favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets', 'images','favicon.ico')));
 
-// Support for parsing data in POSTs
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-
-// Session support for simple replaying of answers
-app.use(session({
-  secret: secret,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: secureCookies }
-}));
-
 // send assetPath to all views
 app.use(function (req, res, next) {
   res.locals.asset_path="/public/";
@@ -78,11 +64,6 @@ app.use(function (req, res, next) {
   res.locals.serviceName=config.serviceName;
   res.locals.cookieText=config.cookieText;
   res.locals.releaseVersion="v" + releaseVersion;
-  next();
-});
-
-app.use(function (req, res, next) {
-  res.locals.session = req.session;
   next();
 });
 
@@ -115,32 +96,6 @@ app.get(/\.html?$/i, function (req, res){
   path = parts.join('.');
   res.redirect(path);
 });
-
-// auto render any view that exists
-app.get(/^\/([^.]+)$/, function (req, res) {
-
-  var path = (req.params[0]);
-
-  res.render(path, function(err, html) {
-    if (err) {
-      res.render(path + "/index", function(err2, html) {
-        if (err2) {
-          console.log(err);
-          res.status(404).send(err + "<br>" + err2);
-        } else {
-          res.end(html);
-        }
-      });
-    } else {
-      res.end(html);
-    }
-  });
-
-});
-
-console.log("\nGOV.UK Prototype kit v" + releaseVersion);
-// Display warning not to use kit for production services.
-console.log("\nNOTICE: the kit is for building prototypes, do not use it for production services.");
 
 // start the app
 utils.findAvailablePort(app);
