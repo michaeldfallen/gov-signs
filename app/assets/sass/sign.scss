@@ -1,6 +1,7 @@
 @page {
   /* Disable print margins */
   margin: 0cm 0cm 0cm 0cm;
+  size: landscape;
 }
 
 html {
@@ -40,4 +41,8 @@ h2 {
   width: 78%;
   height: 20%;
   left: 11%;
+}
+
+.bg {
+  -webkit-print-color-adjust: exact;
 }
