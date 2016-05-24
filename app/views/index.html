@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Gov Signs - Signs for Government teams
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+  <h1 class="heading-xlarge">
+    Gov Signs
+    <span class="heading-secondary">Simple signs for Government teams</span>
+  </h1>
+
+  <form action="sign" method="get" accept-charset="utf-8" class="form">
+    <fieldset class="form-group">
+      <label class="form-label" for="title">Title</label>
+      <input class="form-control" type="text" name="title" id="title" value="" />
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label class="form-label" for="subtitle">Subtitle</label>
+      <input class="form-control" type="text" name="subtitle" id="subtitle" value="" />
+    </fieldset>
+
+    <fieldset class="form-group inline">
+      <legend class="form-label">Background colour</legend>
+      {% for colour in colours %}
+        <label for="colour-{{colour.name}}"
+               class="block-label"
+               style="background-color: {{colour.bg}}; color: {{colour.fg}}">
+          <input type="radio"
+                 name="colour"
+                 id="colour-{{colour.name}}"
+                 value="{{colour.name}}">
+          {{colour.name}}
+        </label>
+      {% endfor %}
+    </fieldset>
+    <input type="submit" class="button" value="Make a sign">
+  </form>
+</main>
+{% endblock %}
+
+

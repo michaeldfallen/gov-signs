@@ -1,0 +1,43 @@
+@page {
+  /* Disable print margins */
+  margin: 0cm 0cm 0cm 0cm;
+}
+
+html {
+  font-family: 'nta';
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  line-height: 1;
+  font-size: 20vw;
+}
+
+h2 {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  line-height: 1;
+  font-size: 5vw;
+}
+
+.title {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+}
+
+.subtitle {
+  position: relative;
+  width: 78%;
+  height: 20%;
+  left: 11%;
+}

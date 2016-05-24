@@ -1,0 +1,37 @@
+{% block intentionally_empty_to_trigger_formatting %}{% endblock %}
+<html>
+  <head>
+
+    <title>{{ title }} - {{ subtitle }}</title>
+    <!--[if IE 8]>
+    <script type="text/javascript">
+      (function(){if(window.opera){return;}
+       setTimeout(function(){var a=document,g,b={families:(g=
+       ["nta"]),urls:["{{ asset_path }}stylesheets/fonts-ie8.css?0.17.0"]},
+       c="{{ asset_path }}javascripts/vendor/goog/webfont-debug.js?0.17.0",d="script",
+       e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
+       ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h=h-1;a.documentElement
+       .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
+      })()
+    </script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <link href="{{ asset_path }}stylesheets/fonts.css?0.17.0" media="all" rel="stylesheet" type="text/css" />
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="{{ asset_path }}stylesheets/sign.css?0.17.0" type="text/css" charset="utf-8">
+
+  </head>
+  <body style="background-color: {{ colour.bg }}">
+    <div class="title">
+      <h1 style="color: {{ colour.fg }}">
+        {{ title }}
+      </h1>
+    </div>
+    <div class="subtitle">
+      <h2 style="color: {{ colour.fg }}">
+        {{ subtitle }}
+      </h2>
+    </div>
+  </body>
+</html>
