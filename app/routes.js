@@ -35,8 +35,6 @@ router.get('/sign', function(req, res) {
     return item.name === req.query.colour;
   })[0];
 
-  console.log('params', [title, subtitle, colour]);
-
   res.render('sign', {
     title: title,
     subtitle: subtitle,
