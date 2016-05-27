@@ -16,6 +16,7 @@ var colours = [
   { 'name': 'green',       'bg': '#006435', 'fg': '#fff'    },
   { 'name': 'turquoise',   'bg': '#28a197', 'fg': '#0b0c0c' },
   { 'name': 'light-blue',  'bg': '#2b8cc4', 'fg': '#0b0c0c' },
+  { 'name': 'govuk-blue',  'bg': '#005ea5', 'fg': '#fff' },
   { 'name': 'black',       'bg': '#0b0c0c', 'fg': '#fff'    },
   { 'name': 'grey-1',      'bg': '#6f777b', 'fg': '#fff'    },
   { 'name': 'grey-2',      'bg': '#bfc1c3', 'fg': '#0b0c0c' },
